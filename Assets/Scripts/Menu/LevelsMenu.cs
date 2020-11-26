@@ -10,7 +10,7 @@ public class LevelsMenu : MonoBehaviour
     {
         _levelButtons = GetComponentsInChildren<Button>();
 
-        int levelWithHighestIndex = PlayerPrefs.GetInt(GameOverHandler.LastLevelIndex, 0);
+        int levelWithHighestIndex = PlayerPrefs.GetInt(GameOverManager.LastLevelIndex, 0);
 
         for (int i = 0; i < levelWithHighestIndex + 1; i++)
         {
