@@ -7,7 +7,7 @@ public class TurretShop : MonoBehaviour
 {
     [SerializeField] private int _resources;
     [SerializeField] private Transform _buttonHolder = null;
-    [SerializeField] private TurretShopButton _turretShopButton = null;
+    [SerializeField] private BuyTurretButton _buyTurretButton = null;
     [SerializeField] private TurretData[] _turrets = new TurretData[0];
 
     public event Action<int> OnResourcesChanged;
@@ -23,7 +23,7 @@ public class TurretShop : MonoBehaviour
     {
         foreach (var towerData in _turrets)
         {
-            TurretShopButton towerShopButtonInstance = Instantiate(_turretShopButton, _buttonHolder);
+            BuyTurretButton towerShopButtonInstance = Instantiate(_buyTurretButton, _buttonHolder);
 
             towerShopButtonInstance.Initialise(towerData, this);
         }
