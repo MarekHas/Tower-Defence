@@ -7,10 +7,11 @@ public class GameOverManager : MonoBehaviour
 {
     [SerializeField] private GameObject _winPanel = null;
     [SerializeField] private GameObject _losePanel = null;
+    [SerializeField] private PlayerBase _playerBase;
 
     private int _nextLevelIndex;
 
-    public const string LastLevelIndex = "LastLevelIndex";
+    public const string LastLevelIndex = "HighestLevelIndex";
 
     private void OnEnable()
     {
@@ -29,8 +30,9 @@ public class GameOverManager : MonoBehaviour
         _winPanel.SetActive(true);
 
         string activeSceneName = SceneManager.GetActiveScene().name;
-        string levelIndex = activeSceneName.Split('_')[2];
+        string levelIndex = activeSceneName.Split('_')[1];
         int levelIndexValue = int.Parse(levelIndex);
+
         if (PlayerPrefs.GetInt(LastLevelIndex, 0) < levelIndexValue)
         {
             PlayerPrefs.SetInt(LastLevelIndex, levelIndexValue);
@@ -41,7 +43,7 @@ public class GameOverManager : MonoBehaviour
     private void PlayerLoseHandler()
     {
         Time.timeScale = 0f;
-
+        _playerBase.gameObject.SetActive(false);
         _losePanel.SetActive(true);
     }
 
