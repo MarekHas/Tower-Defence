@@ -16,6 +16,6 @@ MonoBehaviour:
   _cost: 100
   _fireRate: 10
   _range: 5
-  _icon: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  _icon: {fileID: 21300000, guid: 3888a8f3b052f294bb9fed5b15ea962e, type: 3}
   _preview: {fileID: 2111259545096498963, guid: f12e82712293f444fba3de899c5a18ec, type: 3}
   _model: {fileID: 2185214475554391063, guid: 816213d4c2aca9846a3f41a8575868a1, type: 3}
