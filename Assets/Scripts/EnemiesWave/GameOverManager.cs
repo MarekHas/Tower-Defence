@@ -63,9 +63,9 @@ public class GameOverManager : MonoBehaviour
 
     public void NextLevel()
     {
-        if (Application.CanStreamedLevelBeLoaded($"Scene_Level_{_nextLevelIndex}"))
+        if (Application.CanStreamedLevelBeLoaded($"Level_{_nextLevelIndex}"))
         {
-            SceneManager.LoadScene($"Scene_Level_{_nextLevelIndex}");
+            SceneManager.LoadScene($"Level_{_nextLevelIndex}");
         }
         else
         {

@@ -7,6 +7,8 @@ using System;
 public class EnemiesWave
 {
     [SerializeField] private EnemyUnit[] _enemyUnits = new EnemyUnit[0];
+    [SerializeField] private float _spawningTime;
 
     public EnemyUnit[] EnemyUnits => _enemyUnits;
+    public float SpawningTime => _spawningTime;
 }

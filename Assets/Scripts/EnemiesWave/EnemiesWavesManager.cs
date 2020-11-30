@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using TMPro;
+using UnityEditor;
+using Unity.Collections;
 
 public class EnemiesWavesManager : MonoBehaviour
 {
-    [SerializeField] private int _numberOfWaves = 1;
+    [ReadOnly] [SerializeField] private int _numberOfWaves = 0;
     [SerializeField] private int _nextWaveTime = 10;
     [SerializeField] private TMP_Text _nextWaveTimeText = null;
     [SerializeField] private EnemiesWavesSpawnPoint[] _enemiesWavesSpawnPoints = new EnemiesWavesSpawnPoint[0];
@@ -26,6 +28,7 @@ public class EnemiesWavesManager : MonoBehaviour
 
     private void Start()
     {
+        GetWavesNumber();
         GetNextWave();
         ResetTimer();
     }
@@ -51,6 +54,14 @@ public class EnemiesWavesManager : MonoBehaviour
         }
 
         _nextWaveTimeText.text = Mathf.Ceil(_nextWaveTimeCounter).ToString();
+    }
+
+    private void GetWavesNumber()
+    {
+        foreach (var item in _enemiesWavesSpawnPoints)
+        {
+            _numberOfWaves += item.Waves.Length;
+        }
     }
 
     private void StartNextWave()
